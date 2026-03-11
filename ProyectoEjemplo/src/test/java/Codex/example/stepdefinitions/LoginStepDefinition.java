@@ -1,11 +1,14 @@
 
 
-package Yambal.example.stepdefinitions;
-
-import Yambal.example.tasks.*;
+package Codex.example.stepdefinitions;
+import Codex.example.tasks.DemoBlaze.AgregarProductosDemoblaze;
+import Codex.example.tasks.DemoBlaze.CompletarFormularioCompra;
+import Codex.example.tasks.DemoBlaze.FinalizarCompra;
+import Codex.example.tasks.DemoBlaze.IrAlCarrito;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
 import net.serenitybdd.screenplay.actions.Open;
@@ -19,80 +22,63 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class LoginStepDefinition {
 
-    private EnvironmentVariables environmentVariables =
+
+    private final EnvironmentVariables environmentVariables =
             SystemEnvironmentVariables.createEnvironmentVariables();
 
     @Before
     public void setUp() {
-
-        // Inicializa Screenplay
         OnStage.setTheStage(new OnlineCast());
-
-        // Crea el actor
-        theActorCalled("Consultor");
+        theActorCalled("Usuario");
     }
 
-    @Given("el usuario abre el portal en {string} para {string}")
-    public void abrirPortal(String ambiente, String pais) {
-
-        String env = ambiente + "_" + pais;
-        // Setear environment siempre
-        System.setProperty("environment", env);
-        System.out.println("Ambiente activo: " + env);
+    @Given("el usuario abre la pagina")
+    public void elUsuarioAbreLaPagina() {
         String url = EnvironmentSpecificConfiguration
                 .from(environmentVariables)
                 .getProperty("base.url");
-        System.out.println("URL: " + url);
+
         theActorInTheSpotlight().attemptsTo(
                 Open.url(url)
         );
     }
 
-    @When("^inicia sesión con (.*) y (.*)$")
-    public void iniciaSesionConUsuarioYClave(String usuario, String clave) {
-
+    @When("el usuario agrega los productos {string} y {string} al carrito")
+    public void elUsuarioAgregaLosProductosAlCarrito(String producto1, String producto2) {
         theActorInTheSpotlight().attemptsTo(
-                LoginYambal.con(usuario, clave)
+                AgregarProductosDemoblaze.withData(producto1, producto2)
         );
     }
 
-    @And("se agrega producto al carrito de compras")
-    public void agregaProductosCarrito() {
-
+    @And("el usuario navega al carrito de compras")
+    public void elUsuarioNavegaAlCarritoDeCompras() {
         theActorInTheSpotlight().attemptsTo(
-                ProductoTienda.agregar()
-        );
-    }
-
-    @And("se escoge {int} productos al carrito de compras y se agrega a la bolsa")
-    public void productosACaja(Integer nroProductos) {
-
-        String producto = String.valueOf(nroProductos);
-
-        theActorInTheSpotlight().attemptsTo(
-                ProductoYambal.con(producto)
-        );
-    }
-    @And("se Ingresa al check out y se valida el resumen del pedido")
-    public void ingresocheck() {
-        theActorInTheSpotlight().attemptsTo(
-                validacionCheckout.checkout()
+                IrAlCarrito.ir()
         );
     }
 
 
 
-    @And("^se procede a pagar con (CreditoYambal|Tarjeta de credito)$")
-    public void pagoyambal(String tipoPago) {
-
+    @And("completa el formulario con nombre {string}, pais {string}, ciudad {string}, tarjeta {string}, mes {string}, año {string}")
+    public void completaElFormularioConNombrePaisCiudadTarjetaMesAnio(String nombre, String pais, String ciudad, String tarjeta, String mes, String anio)
+    {
         theActorInTheSpotlight().attemptsTo(
-                PagarOrden.con(tipoPago)
+                CompletarFormularioCompra.con(nombre, pais, ciudad, tarjeta, mes, anio)
         );
     }
 
-    @And("^se valida el historial del pedido$")
-    public void validahistorial() {
+    @Then("el usuario finaliza la compra exitosamente")
+    public void elUsuarioFinalizaLaCompraExitosamente() {
+        theActorInTheSpotlight().attemptsTo(
+                FinalizarCompra.confirmar()
+        );
     }
+
+    @And("se muestra el mensaje de confirmacion de compra")
+    public void seMuestraElMensajeDeConfirmacionDeCompra() {
+    }
+
+
 
 
 }

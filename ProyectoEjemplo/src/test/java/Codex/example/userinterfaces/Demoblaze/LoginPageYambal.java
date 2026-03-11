@@ -1,4 +1,4 @@
-package Yambal.example.userinterfaces;
+package Codex.example.userinterfaces.Demoblaze;
 
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
