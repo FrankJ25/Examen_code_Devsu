@@ -1,9 +1,5 @@
 package Codex.example.questions;
 
-import net.serenitybdd.screenplay.Question;
-import net.serenitybdd.screenplay.questions.TextContent;
-import Codex.example.userinterfaces.Demoblaze.ProductoPage;
-
 public class LoginQuestion {
 
    // public static Question<String> tituloIngreso(){

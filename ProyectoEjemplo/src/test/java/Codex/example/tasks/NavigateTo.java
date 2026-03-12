@@ -1,4 +1,4 @@
-package Codex.example.tasks;
+package Codex.exam.tasks;
 
 import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
 import net.serenitybdd.screenplay.Actor;
