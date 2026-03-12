@@ -1,28 +1,33 @@
-PROYECTO: Automatización de pruebas funcionales Web (E2E)
+PROYECTO: Automatización de Pruebas Web E2E y APIs
 
 DESCRIPCIÓN
 
-Este proyecto contiene la automatización de pruebas funcionales end-to-end
-sobre diferentes aplicaciones web públicas utilizando el patrón Screenplay
-con Serenity BDD, Cucumber y Selenium WebDriver.
+Este repositorio contiene la automatización de pruebas funcionales Web (E2E) y pruebas de APIs REST utilizando diferentes herramientas de automatización.
 
-Las pruebas validan flujos completos de compra en diferentes aplicaciones
-de comercio electrónico.
+Las pruebas Web fueron implementadas utilizando Serenity BDD con el patrón Screenplay, Cucumber y Selenium WebDriver.  
+Las pruebas de APIs fueron desarrolladas utilizando Karate Framework.
 
-HERRAMIENTAS UTILIZADAS
+El objetivo del proyecto es validar diferentes flujos funcionales en aplicaciones web y servicios REST, identificando entradas, capturando salidas y validando el comportamiento esperado del sistema.
+
+------------------------------------------------------------
+
+TECNOLOGÍAS UTILIZADAS
 
 - Java 17
 - Maven
 - Selenium WebDriver
 - Serenity BDD
-- Cucumber (BDD)
+- Cucumber
 - Screenplay Pattern
+- Karate Framework
 - IntelliJ IDEA
 
-APLICACIONES AUTOMATIZADAS
+------------------------------------------------------------
 
-1. SAUCEDEMO
-URL: https://www.saucedemo.com/
+PRUEBAS WEB IMPLEMENTADAS
+
+1. SauceDemo
+   URL: https://www.saucedemo.com/
 
 Flujo automatizado:
 - Autenticación con usuario estándar
@@ -30,144 +35,121 @@ Flujo automatizado:
 - Visualizar el carrito
 - Completar el checkout
 - Finalizar la compra
-- Validar el mensaje de confirmación: "Thank you for your order!"
+- Validar mensaje de confirmación
 
 ------------------------------------------------------------
 
-2. DEMOBLAZE
-URL: https://www.demoblaze.com/
+2. Demoblaze
+   URL: https://www.demoblaze.com/
 
 Flujo automatizado:
-- Agregar dos productos al carrito
+- Agregar productos al carrito
 - Visualizar el carrito
 - Completar el formulario de compra
 - Finalizar la compra
-- Validar el mensaje de confirmación
+- Validar confirmación de la orden
 
 ------------------------------------------------------------
 
-3. OPENCART
-URL: http://opencart.abstracta.us/
+3. OpenCart
+   URL: http://opencart.abstracta.us/
 
 Flujo automatizado:
-- Agregar dos productos al carrito
-- Visualizar el carrito
-- Realizar checkout como invitado (Guest Checkout)
-- Completar los datos de facturación
+- Agregar productos al carrito
+- Visualizar carrito
+- Checkout como invitado (Guest Checkout)
+- Completar datos del pedido
 - Confirmar la orden
-- Validar el mensaje: "Your order has been placed!"
 
 ------------------------------------------------------------
 
-ESTRUCTURA DEL PROYECTO
+PRUEBAS DE APIs IMPLEMENTADAS
 
-src
- └── test
-     ├── java
-     │   └── Codex.example
-     │       ├── runners
-     │       ├── stepdefinitions
-     │       ├── tasks
-     │       ├── userinterfaces
-     │       └── questions
-     │
-     └── resources
-         └── features
+1. Demoblaze API
+   Endpoints probados:
 
-Los tests están organizados siguiendo el patrón Screenplay, separando:
+POST /signup
+POST /login
 
-- Step Definitions
-- Tasks
-- User Interfaces
-- Questions
-- Runners
-- Features
+Casos probados:
+- Crear un nuevo usuario
+- Intentar crear un usuario existente
+- Login con credenciales correctas
+- Login con credenciales incorrectas
 
 ------------------------------------------------------------
 
-REQUISITOS
+2. Petstore API (Mascotas)
 
-Para ejecutar el proyecto se necesita:
+Endpoints probados:
 
-- Java 17 o superior
-- Maven 3.8+
-- Google Chrome instalado
-- Conexión a internet
+POST /pet
+GET /pet/{id}
+PUT /pet
+GET /pet/findByStatus
+
+Casos probados:
+- Añadir mascota
+- Consultar mascota por ID
+- Actualizar mascota
+- Consultar mascota por estado
 
 ------------------------------------------------------------
 
-EJECUCIÓN DE LAS PRUEBAS
+3. Petstore API (Usuarios)
 
-1. Clonar el repositorio desde GitHub:
+Endpoints probados:
 
-git clone <URL_DEL_REPOSITORIO>
+POST /user
+GET /user/{username}
+PUT /user/{username}
+DELETE /user/{username}
 
-2. Abrir una terminal en la carpeta del proyecto.
+Casos probados:
+- Crear usuario
+- Buscar usuario
+- Actualizar datos del usuario
+- Buscar usuario actualizado
+- Eliminar usuario
 
-3. Ejecutar el siguiente comando:
+------------------------------------------------------------
+
+EJECUCIÓN DEL PROYECTO
+
+1. Clonar el repositorio desde GitHub.
+
+2. Abrir el proyecto en IntelliJ IDEA.
+
+3. Ejecutar los siguientes comandos desde la raíz del proyecto:
+
+Para ejecutar todas las pruebas:
 
 mvn clean verify
 
-Esto ejecutará todas las pruebas automatizadas definidas en los archivos feature.
+Para ejecutar pruebas específicas:
 
-------------------------------------------------------------
+Web Automation (Serenity)
+Ejecutar los runners correspondientes.
 
-EJECUCIÓN POR PROYECTO
+API Automation (Karate)
+Ejecutar los runners:
 
-Cada aplicación tiene su propio Runner:
-
-SauceDemo
-Ejecutar:
-SauceDemoTestSuite.java
-
-Demoblaze
-Ejecutar:
-DemoblazeTestSuite.java
-
-OpenCart
-Ejecutar:
-OpenCartTestSuite.java
+DemoApiRunner
+PetstoreApiRunner
+PetstoreUserApiRunner
 
 ------------------------------------------------------------
 
 REPORTES
 
-Serenity genera reportes automáticos después de la ejecución.
-
-Los reportes se encuentran en:
+Los reportes de Serenity se generan automáticamente en:
 
 target/site/serenity/index.html
 
-Estos reportes incluyen:
-
-- Escenarios ejecutados
-- Resultados de cada paso
-- Evidencias de ejecución
-- Screenshots automáticos
-
-------------------------------------------------------------
-
-CASOS DE PRUEBA IMPLEMENTADOS
-
-SauceDemo
-- Login con usuario estándar
-- Agregar productos al carrito
-- Checkout
-- Confirmación de compra
-
-Demoblaze
-- Agregar productos al carrito
-- Compra de productos
-- Confirmación de orden
-
-OpenCart
-- Agregar productos
-- Guest checkout
-- Confirmación de orden
+Estos reportes incluyen el detalle de los escenarios ejecutados, pasos realizados y evidencias de ejecución.
 
 ------------------------------------------------------------
 
 AUTOR
 
-Proyecto desarrollado como ejercicio de automatización de pruebas
-funcionales web utilizando Serenity BDD y el patrón Screenplay.
+Proyecto desarrollado como ejercicio de automatización de pruebas funcionales Web y APIs.

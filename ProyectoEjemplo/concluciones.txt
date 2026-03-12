@@ -1,16 +1,11 @@
-CONCLUSIONES DEL EJERCICIO
+CONCLUSIONES Y HALLAZGOS
 
-Se implementaron pruebas automatizadas para los flujos de compra en tres aplicaciones web:
-SauceDemo, Demoblaze y OpenCart.
+Durante la ejecución del proyecto se automatizaron flujos de pruebas funcionales para aplicaciones web y servicios REST, permitiendo validar el comportamiento esperado de los sistemas evaluados.
 
-Las pruebas permitieron validar funcionalidades clave como el login, la adición de
-productos al carrito, el proceso de checkout y la confirmación de compra.
+En las pruebas Web se verificaron procesos completos de compra en diferentes aplicaciones, incluyendo autenticación, selección de productos, gestión del carrito y finalización de pedidos. Los resultados demostraron que los flujos principales funcionan correctamente cuando se ingresan datos válidos.
 
-Durante la ejecución se verificó que los flujos principales funcionan correctamente
-y que los mensajes de confirmación se muestran según lo esperado.
+En las pruebas de APIs se validaron diferentes operaciones sobre los servicios REST, como creación, consulta, actualización y eliminación de recursos. Se verificó que las APIs responden correctamente ante solicitudes válidas y retornan la información esperada en cada operación.
 
-El uso de Serenity BDD, Cucumber y el patrón Screenplay permitió organizar el código
-de forma clara, reutilizable y generar reportes automáticos de las ejecuciones.
+El uso de Serenity BDD con el patrón Screenplay permitió mantener una estructura clara y reutilizable del código de automatización. Por otro lado, Karate Framework facilitó la validación de servicios REST y la captura de las entradas y salidas de cada petición.
 
-La automatización de estos escenarios facilita la ejecución repetitiva de pruebas
-y contribuye a asegurar la calidad del software.
+La automatización implementada permite ejecutar pruebas de forma repetitiva, reduciendo tiempos de validación manual y contribuyendo a asegurar la calidad del software mediante pruebas de regresión.
