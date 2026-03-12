@@ -1,0 +1,16 @@
+CONCLUSIONES DEL EJERCICIO
+
+Se implementaron pruebas automatizadas para los flujos de compra en tres aplicaciones web:
+SauceDemo, Demoblaze y OpenCart.
+
+Las pruebas permitieron validar funcionalidades clave como el login, la adición de
+productos al carrito, el proceso de checkout y la confirmación de compra.
+
+Durante la ejecución se verificó que los flujos principales funcionan correctamente
+y que los mensajes de confirmación se muestran según lo esperado.
+
+El uso de Serenity BDD, Cucumber y el patrón Screenplay permitió organizar el código
+de forma clara, reutilizable y generar reportes automáticos de las ejecuciones.
+
+La automatización de estos escenarios facilita la ejecución repetitiva de pruebas
+y contribuye a asegurar la calidad del software.
