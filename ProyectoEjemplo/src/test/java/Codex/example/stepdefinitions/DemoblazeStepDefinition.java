@@ -20,7 +20,7 @@ import net.thucydides.model.util.EnvironmentVariables;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class LoginStepDefinition {
+public class DemoblazeStepDefinition {
 
 
     private final EnvironmentVariables environmentVariables =
@@ -32,7 +32,7 @@ public class LoginStepDefinition {
         theActorCalled("Usuario");
     }
 
-    @Given("el usuario abre la pagina")
+    @Given("el usuario abre la pagina de Demoblaze")
     public void elUsuarioAbreLaPagina() {
         String url = EnvironmentSpecificConfiguration
                 .from(environmentVariables)
@@ -50,14 +50,12 @@ public class LoginStepDefinition {
         );
     }
 
-    @And("el usuario navega al carrito de compras")
+    @And("el usuario navega al carrito de compras en Demoblaze")
     public void elUsuarioNavegaAlCarritoDeCompras() {
         theActorInTheSpotlight().attemptsTo(
                 IrAlCarrito.ir()
         );
     }
-
-
 
     @And("completa el formulario con nombre {string}, pais {string}, ciudad {string}, tarjeta {string}, mes {string}, año {string}")
     public void completaElFormularioConNombrePaisCiudadTarjetaMesAnio(String nombre, String pais, String ciudad, String tarjeta, String mes, String anio)
@@ -67,7 +65,7 @@ public class LoginStepDefinition {
         );
     }
 
-    @Then("el usuario finaliza la compra exitosamente")
+    @Then("el usuario finaliza la compra exitosamente en Demoblaze")
     public void elUsuarioFinalizaLaCompraExitosamente() {
         theActorInTheSpotlight().attemptsTo(
                 FinalizarCompra.confirmar()

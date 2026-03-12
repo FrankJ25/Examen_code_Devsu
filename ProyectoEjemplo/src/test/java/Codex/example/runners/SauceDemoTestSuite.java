@@ -10,11 +10,12 @@ import static net.serenitybdd.annotations.ClearCookiesPolicy.BeforeEachTest;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/SauceDemo",
         glue = {"Codex.example.stepdefinitions"},
-        tags = "@CompraDemoblaze"
+        tags = "@CompraSauceDemo"
 )
-public class CucumberTestSuite {
+public class SauceDemoTestSuite {
+
     @Managed(uniqueSession = true, clearCookies = BeforeEachTest)
     WebDriver driver;
 }

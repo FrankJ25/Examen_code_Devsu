@@ -48,7 +48,7 @@ public class CompletarFormularioCompra implements Task {
                 Enter.theValue(tarjeta).into(FormPage.CARD),
                 Enter.theValue(mes).into(FormPage.MONTH),
                 Enter.theValue(anio).into(FormPage.YEAR)
-               // Click.on(FormPage.PURCHASE)
+
         );
     }
 }

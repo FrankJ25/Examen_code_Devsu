@@ -1,4 +1,4 @@
-package Yambal.example.tasks;
+package Codex.example.tasks;
 
 import net.serenitybdd.model.environment.EnvironmentSpecificConfiguration;
 import net.serenitybdd.screenplay.Actor;
